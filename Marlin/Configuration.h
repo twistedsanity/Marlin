@@ -1,6 +1,9 @@
 #ifndef __CONFIGURATION_H
 #define __CONFIGURATION_H
 
+// J-head
+#define E_STEPS_PER_MM (((3200 * 39.0)/(11.0 * 7.4 * 3.142)) / 0.94)
+
 // This configurtion file contains the basic settings.
 // Advanced settings can be found in Configuration_adv.h 
 // BASIC SETTINGS: select your board type, temperature sensor type, axis scaling, and endstop configuration
@@ -8,8 +11,8 @@
 //User specified version info of THIS file to display in [Pronterface, etc] terminal window during startup.
 //Implementation of an idea by Prof Braino to inform user that any changes made
 //to THIS file by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H "2012-05-02" //Personal revision number for changes to THIS file.
-#define STRING_CONFIG_H_AUTHOR "erik" //Who made the changes.
+#define STRING_VERSION_CONFIG_H "2012-07-27" //Personal revision number for changes to THIS file.
+#define STRING_CONFIG_H_AUTHOR "nophead" //Who made the changes.
 
 // This determines the communication speed of the printer
 #define BAUDRATE 250000
@@ -25,14 +28,14 @@
 // RAMPS 1.3 = 34 (Power outputs: Extruder0, Extruder1, Bed)
 // Gen6 = 5
 // Gen6 deluxe = 51
-// Sanguinololu 1.2 and above = 62
+// Sanguinololu 1.2 and above = 63
 // Melzi = 63
 // Ultimaker = 7
 // Teensylu = 8
 // Gen3+ =9
 
 #ifndef MOTHERBOARD
-#define MOTHERBOARD 62
+#define MOTHERBOARD 63
 #endif
 
 //===========================================================================
@@ -145,7 +148,7 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 #define INVERT_X_DIR false    // for Mendel set to false, for Orca set to true
 #define INVERT_Y_DIR false    // for Mendel set to true, for Orca set to false
 #define INVERT_Z_DIR true     // for Mendel set to false, for Orca set to true
-#define INVERT_E0_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
+#define INVERT_E0_DIR true   // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E1_DIR false    // for direct drive extruder v9 set to true, for geared extruder set to false
 #define INVERT_E2_DIR false   // for direct drive extruder v9 set to true, for geared extruder set to false
 
@@ -166,9 +169,9 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 #define Z_MAX_POS (Z_HOME_POS - 0.1)
 
 // The position of the homing switches. Use MAX_LENGTH * -0.5 if the center should be 0, 0, 0
-#define X_HOME_POS (X_MIN_POS - 2)  // Mendel90 has 2mm clearance from endstop
-#define Y_HOME_POS (Y_MIN_POS - 2)
-#define Z_HOME_POS 136.45            // Mendel90 switch is at the top
+#define X_HOME_POS (X_MIN_POS - 1)  
+#define Y_HOME_POS (Y_MIN_POS - 1)
+#define Z_HOME_POS (201)
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
 #define Y_MAX_LENGTH (Y_MAX_POS - Y_MIN_POS)
@@ -179,10 +182,9 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 #define HOMING_FEEDRATE {50*60, 50*60, 4*60, 0}  // set the homing speeds (mm/min)
 
 // default settings 
-
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {64,64,200*8/1.25,((3200 * 39.0)/(11.0 * 7.4 * 3.142)) / 0.94}  // Mendel90 with Wades and Stoffel15 bolt 
-#define DEFAULT_MAX_FEEDRATE          {150, 150, 4, 30}    // (mm/sec)    
-#define DEFAULT_MAX_ACCELERATION      {4000,4000,128,5000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {64,64,200*16/1,E_STEPS_PER_MM}  // Mendel90 with Wades and Stoffel15 bolt 
+#define DEFAULT_MAX_FEEDRATE          {500, 500, 4, 30}    // (mm/sec)
+#define DEFAULT_MAX_ACCELERATION      {4000,4000,150,5000}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
 
 #define DEFAULT_ACCELERATION          4000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves 
 #define DEFAULT_RETRACT_ACCELERATION  5000   // X, Y, Z and E max acceleration in mm/s^2 for r retracts
@@ -202,14 +204,14 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).  
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 //define this to enable eeprom support
-#define EEPROM_SETTINGS
+//#define EEPROM_SETTINGS
 //to disable EEPROM Serial responses and decrease program space by ~1700 byte: comment this out:
 // please keep turned on if you can.
 //#define EEPROM_CHITCHAT
 
 //LCD and SD support
 //#define ULTRA_LCD  //general lcd support, also 16x2
-//#define SDSUPPORT // Enable SD Card Support in Hardware Console
+#define SDSUPPORT // Enable SD Card Support in Hardware Console
 
 //#define ULTIMAKERCONTROLLER //as available from the ultimaker online store.
 //#define ULTIPANEL  //the ultipanel as on thingiverse
@@ -245,7 +247,7 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 #endif
 
 // Increase the FAN pwm frequency. Removes the PWM noise but increases heating in the FET/Arduino
-#define FAST_PWM_FAN
+//#define FAST_PWM_FAN
 
 // M240  Triggers a camera by emulating a Canon RC-1 Remote
 // Data from: http://www.doc-diy.net/photo/rc-1_hacked/

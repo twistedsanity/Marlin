@@ -608,7 +608,7 @@
 #define FAN_PIN            -1 
 
 #ifdef MELZI
-#define LED_PIN            28
+//#define LED_PIN            27
 #define FAN_PIN            4
 #endif
 
@@ -642,11 +642,8 @@
 #define TEMP_2_PIN         -1
 #define TEMP_BED_PIN        6   // MUST USE ANALOG INPUT NUMBERING NOT DIGITAL OUTPUT NUMBERING!!!!!!!!! (pin 34 bed)
 #define SDPOWER            -1
-#define SDSS               31
 
-#ifdef MELZI
-#define SDSS               24
-#endif
+#define SDSS               31
 
 #endif
 

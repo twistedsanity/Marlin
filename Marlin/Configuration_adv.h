@@ -157,7 +157,7 @@ const int dropsegments=5; //everything with less than this number of steps will 
 // You can get round this by connecting a push button or single throw switch to the pin defined as SDCARDCARDDETECT 
 // in the pins.h file.  When using a push button pulling the pin to ground this will need inverted.  This setting should
 // be commented out otherwise
-#define SDCARDDETECTINVERTED 
+//#define SDCARDDETECTINVERTED 
 
 #ifdef ULTIPANEL
  #undef SDCARDDETECTINVERTED
