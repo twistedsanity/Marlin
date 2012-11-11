@@ -1,3 +1,5 @@
+Marlin configured for Mendel90 with Sanguninololu
+
 WARNING: 
 --------
 THIS IS RELEASE CANDIDATE 2 FOR MARLIN 1.0.0
