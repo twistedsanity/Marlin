@@ -1,17 +1,16 @@
 #ifndef __CONFIGURATION_H
 #define __CONFIGURATION_H
 
-// J-head
-#define E_STEPS_PER_MM (((3200 * 39.0)/(11.0 * 7.4 * 3.142)) / 0.94)
+// Mendel90 hobbed bolt and 39:11 Wade's gears
+#define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142))
 
 // This configurtion file contains the basic settings.
 // Advanced settings can be found in Configuration_adv.h 
 // BASIC SETTINGS: select your board type, temperature sensor type, axis scaling, and endstop configuration
 
-//User specified version info of THIS file to display in [Pronterface, etc] terminal window during startup.
+//User specified version info of this build to display in [Pronterface, etc] terminal window during startup.
 //Implementation of an idea by Prof Braino to inform user that any changes made
-//to THIS file by the user have been successfully uploaded into firmware.
-#define STRING_VERSION_CONFIG_H "2012-07-27" //Personal revision number for changes to THIS file.
+#define STRING_VERSION_CONFIG_H __DATE__ " " __TIME__ // build date and time
 #define STRING_CONFIG_H_AUTHOR "nophead" //Who made the changes.
 
 // This determines the communication speed of the printer
@@ -53,11 +52,13 @@
 // 5 is ParCan supplied 104GT-2 100K
 // 6 is EPCOS 100k
 // 7 is 100k Honeywell thermistor 135-104LAG-J01
+// 8 is Epcos B57560G104F 100K
+// 9 is Epcos B57861S104F40 100K 155C for bed only
 
-#define TEMP_SENSOR_0 6
+#define TEMP_SENSOR_0 8
 #define TEMP_SENSOR_1 0
 #define TEMP_SENSOR_2 0
-#define TEMP_SENSOR_BED 7
+#define TEMP_SENSOR_BED 9 // 1 for Mendel90 kits 1-6, 9 for kits 7 onwards
 
 // Actual temperature must be close to target for this long before M109 returns success
 #define TEMP_RESIDENCY_TIME 60	// (seconds)
@@ -171,7 +172,7 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 // The position of the homing switches. Use MAX_LENGTH * -0.5 if the center should be 0, 0, 0
 #define X_HOME_POS (X_MIN_POS - 1)  
 #define Y_HOME_POS (Y_MIN_POS - 1)
-#define Z_HOME_POS (201)
+#define Z_HOME_POS (203.0)
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
 #define Y_MAX_LENGTH (Y_MAX_POS - Y_MIN_POS)

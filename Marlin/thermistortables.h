@@ -73,27 +73,41 @@ const short temptable_1[][2] PROGMEM = {
 #endif
 #if (THERMISTORHEATER_0 == 2) || (THERMISTORHEATER_1 == 2) || (THERMISTORHEATER_2 == 2) || (THERMISTORBED == 2) //200k bed thermistor
 const short temptable_2[][2] PROGMEM = {
+//200k ATC Semitec 204GT-2
+//Verified by linagee. Source: http://shop.arcol.hu/static/datasheets/thermistors.pdf
+// Calculated using 4.7kohm pullup, voltage divider math, and manufacturer provided temp/resistance
    {1*OVERSAMPLENR, 848},
-   {54*OVERSAMPLENR, 275},
-   {107*OVERSAMPLENR, 228},
-   {160*OVERSAMPLENR, 202},
-   {213*OVERSAMPLENR, 185},
-   {266*OVERSAMPLENR, 171},
-   {319*OVERSAMPLENR, 160},
-   {372*OVERSAMPLENR, 150},
-   {425*OVERSAMPLENR, 141},
-   {478*OVERSAMPLENR, 133},
-   {531*OVERSAMPLENR, 125},
-   {584*OVERSAMPLENR, 118},
-   {637*OVERSAMPLENR, 110},
-   {690*OVERSAMPLENR, 103},
-   {743*OVERSAMPLENR, 95},
-   {796*OVERSAMPLENR, 86},
-   {849*OVERSAMPLENR, 77},
-   {902*OVERSAMPLENR, 65},
-   {955*OVERSAMPLENR, 49},
-   {1008*OVERSAMPLENR, 17},
-   {1020*OVERSAMPLENR, 0} //safety
+   {30*OVERSAMPLENR, 300}, //top rating 300C
+   {34*OVERSAMPLENR, 290},
+   {39*OVERSAMPLENR, 280},
+   {46*OVERSAMPLENR, 270},
+   {53*OVERSAMPLENR, 260},
+   {63*OVERSAMPLENR, 250},
+   {74*OVERSAMPLENR, 240},
+   {87*OVERSAMPLENR, 230},
+   {104*OVERSAMPLENR, 220},
+   {124*OVERSAMPLENR, 210},
+   {148*OVERSAMPLENR, 200},
+   {176*OVERSAMPLENR, 190},
+   {211*OVERSAMPLENR, 180},
+   {252*OVERSAMPLENR, 170},
+   {301*OVERSAMPLENR, 160},
+   {357*OVERSAMPLENR, 150},
+   {420*OVERSAMPLENR, 140},
+   {489*OVERSAMPLENR, 130},
+   {562*OVERSAMPLENR, 120},
+   {636*OVERSAMPLENR, 110},
+   {708*OVERSAMPLENR, 100},
+   {775*OVERSAMPLENR, 90},
+   {835*OVERSAMPLENR, 80},
+   {884*OVERSAMPLENR, 70},
+   {924*OVERSAMPLENR, 60},
+   {955*OVERSAMPLENR, 50},
+   {977*OVERSAMPLENR, 40},
+   {993*OVERSAMPLENR, 30},
+   {1004*OVERSAMPLENR, 20},
+   {1012*OVERSAMPLENR, 10},
+   {1016*OVERSAMPLENR, 0},
 };
 
 #endif
@@ -157,88 +171,63 @@ const short temptable_4[][2] PROGMEM = {
 
 #if (THERMISTORHEATER_0 == 5) || (THERMISTORHEATER_1 == 5) || (THERMISTORHEATER_2 == 5) || (THERMISTORBED == 5) //100k ParCan thermistor (104GT-2)
 const short temptable_5[][2] PROGMEM = {
-{1*OVERSAMPLENR, 713},
-{18*OVERSAMPLENR, 316},
-{35*OVERSAMPLENR, 266},
-{52*OVERSAMPLENR, 239},
-{69*OVERSAMPLENR, 221},
-{86*OVERSAMPLENR, 208},
-{103*OVERSAMPLENR, 197},
-{120*OVERSAMPLENR, 188},
-{137*OVERSAMPLENR, 181},
-{154*OVERSAMPLENR, 174},
-{171*OVERSAMPLENR, 169},
-{188*OVERSAMPLENR, 163},
-{205*OVERSAMPLENR, 159},
-{222*OVERSAMPLENR, 154},
-{239*OVERSAMPLENR, 150},
-{256*OVERSAMPLENR, 147},
-{273*OVERSAMPLENR, 143},
-{290*OVERSAMPLENR, 140},
-{307*OVERSAMPLENR, 136},
-{324*OVERSAMPLENR, 133},
-{341*OVERSAMPLENR, 130},
-{358*OVERSAMPLENR, 128},
-{375*OVERSAMPLENR, 125},
-{392*OVERSAMPLENR, 122},
-{409*OVERSAMPLENR, 120},
-{426*OVERSAMPLENR, 117},
-{443*OVERSAMPLENR, 115},
-{460*OVERSAMPLENR, 112},
-{477*OVERSAMPLENR, 110},
-{494*OVERSAMPLENR, 108},
-{511*OVERSAMPLENR, 106},
-{528*OVERSAMPLENR, 103},
-{545*OVERSAMPLENR, 101},
-{562*OVERSAMPLENR, 99},
-{579*OVERSAMPLENR, 97},
-{596*OVERSAMPLENR, 95},
-{613*OVERSAMPLENR, 92},
-{630*OVERSAMPLENR, 90},
-{647*OVERSAMPLENR, 88},
-{664*OVERSAMPLENR, 86},
-{681*OVERSAMPLENR, 84},
-{698*OVERSAMPLENR, 81},
-{715*OVERSAMPLENR, 79},
-{732*OVERSAMPLENR, 77},
-{749*OVERSAMPLENR, 75},
-{766*OVERSAMPLENR, 72},
-{783*OVERSAMPLENR, 70},
-{800*OVERSAMPLENR, 67},
-{817*OVERSAMPLENR, 64},
-{834*OVERSAMPLENR, 61},
-{851*OVERSAMPLENR, 58},
-{868*OVERSAMPLENR, 55},
-{885*OVERSAMPLENR, 52},
-{902*OVERSAMPLENR, 48},
-{919*OVERSAMPLENR, 44},
-{936*OVERSAMPLENR, 40},
-{953*OVERSAMPLENR, 34},
-{970*OVERSAMPLENR, 28},
-{987*OVERSAMPLENR, 20},
-{1004*OVERSAMPLENR, 8},
-{1021*OVERSAMPLENR, 0}
+// ATC Semitec 104GT-2 (Used in ParCan)
+// Verified by linagee. Source: http://shop.arcol.hu/static/datasheets/thermistors.pdf
+// Calculated using 4.7kohm pullup, voltage divider math, and manufacturer provided temp/resistance
+   {1*OVERSAMPLENR, 713},
+   {17*OVERSAMPLENR, 300}, //top rating 300C
+   {20*OVERSAMPLENR, 290},
+   {23*OVERSAMPLENR, 280},
+   {27*OVERSAMPLENR, 270},
+   {31*OVERSAMPLENR, 260},
+   {37*OVERSAMPLENR, 250},
+   {43*OVERSAMPLENR, 240},
+   {51*OVERSAMPLENR, 230},
+   {61*OVERSAMPLENR, 220},
+   {73*OVERSAMPLENR, 210},
+   {87*OVERSAMPLENR, 200},
+   {106*OVERSAMPLENR, 190},
+   {128*OVERSAMPLENR, 180},
+   {155*OVERSAMPLENR, 170},
+   {189*OVERSAMPLENR, 160},
+   {230*OVERSAMPLENR, 150},
+   {278*OVERSAMPLENR, 140},
+   {336*OVERSAMPLENR, 130},
+   {402*OVERSAMPLENR, 120},
+   {476*OVERSAMPLENR, 110},
+   {554*OVERSAMPLENR, 100},
+   {635*OVERSAMPLENR, 90},
+   {713*OVERSAMPLENR, 80},
+   {784*OVERSAMPLENR, 70},
+   {846*OVERSAMPLENR, 60},
+   {897*OVERSAMPLENR, 50},
+   {937*OVERSAMPLENR, 40},
+   {966*OVERSAMPLENR, 30},
+   {986*OVERSAMPLENR, 20},
+   {1000*OVERSAMPLENR, 10},
+   {1010*OVERSAMPLENR, 0}
 };
 #endif
 
 #if (THERMISTORHEATER_0 == 6) || (THERMISTORHEATER_1 == 6) || (THERMISTORHEATER_2 == 6) || (THERMISTORBED == 6) // 100k Epcos thermistor
 const short temptable_6[][2] PROGMEM = {
-   {28*OVERSAMPLENR, 250 + 30},
-   {31*OVERSAMPLENR, 245 + 29},
-   {35*OVERSAMPLENR, 240 + 28},
-   {39*OVERSAMPLENR, 235 + 27},
-   {42*OVERSAMPLENR, 230 + 26},
-   {44*OVERSAMPLENR, 225 + 25},
-   {49*OVERSAMPLENR, 220 + 25},
-   {53*OVERSAMPLENR, 215 + 25},
-   {62*OVERSAMPLENR, 210 + 22},
-   {66*OVERSAMPLENR, 205 + 23},
-   {72*OVERSAMPLENR, 200 + 23},
-   {94*OVERSAMPLENR, 190 + 19},
-   {102*OVERSAMPLENR, 185 + 19},
-   {116*OVERSAMPLENR, 170 + 28},
-   {143*OVERSAMPLENR, 160 + 26},
-   {183*OVERSAMPLENR, 150 + 16},
+   {1*OVERSAMPLENR, 350},
+   {28*OVERSAMPLENR, 250}, //top rating 250C
+   {31*OVERSAMPLENR, 245},
+   {35*OVERSAMPLENR, 240},
+   {39*OVERSAMPLENR, 235},
+   {42*OVERSAMPLENR, 230},
+   {44*OVERSAMPLENR, 225},
+   {49*OVERSAMPLENR, 220},
+   {53*OVERSAMPLENR, 215},
+   {62*OVERSAMPLENR, 210},
+   {71*OVERSAMPLENR, 205}, //fitted graphically
+   {78*OVERSAMPLENR, 200}, //fitted graphically
+   {94*OVERSAMPLENR, 190},
+   {102*OVERSAMPLENR, 185},
+   {116*OVERSAMPLENR, 170},
+   {143*OVERSAMPLENR, 160},
+   {183*OVERSAMPLENR, 150},
    {223*OVERSAMPLENR, 140},
    {270*OVERSAMPLENR, 130},
    {318*OVERSAMPLENR, 120},
@@ -264,51 +253,52 @@ const short temptable_6[][2] PROGMEM = {
 
 #if (THERMISTORHEATER_0 == 7) || (THERMISTORHEATER_1 == 7) || (THERMISTORHEATER_2 == 7) || (THERMISTORBED == 7) // 100k Honeywell 135-104LAG-J01
 const short temptable_7[][2] PROGMEM = {
-   {46*OVERSAMPLENR, 270-52},
-   {50*OVERSAMPLENR, 265-52},
-   {54*OVERSAMPLENR, 260-52},
-   {58*OVERSAMPLENR, 255-52},
-   {62*OVERSAMPLENR, 250-52},
-   {67*OVERSAMPLENR, 245-52},
-   {72*OVERSAMPLENR, 240-52},
-   {79*OVERSAMPLENR, 235-52},
-   {85*OVERSAMPLENR, 230-52},
-   {91*OVERSAMPLENR, 225-52},
-   {99*OVERSAMPLENR, 220-52},
-   {107*OVERSAMPLENR, 215-52},
-   {116*OVERSAMPLENR, 210-52},
-   {126*OVERSAMPLENR, 205-52},
-   {136*OVERSAMPLENR, 200-52},
-   {149*OVERSAMPLENR, 195-52},
-   {160*OVERSAMPLENR, 190-52},
-   {175*OVERSAMPLENR, 185-52},
-   {191*OVERSAMPLENR, 180-52},
-   {209*OVERSAMPLENR, 175-52},
-   {224*OVERSAMPLENR, 170-52},
-   {246*OVERSAMPLENR, 165-52},
-   {267*OVERSAMPLENR, 160 -52 },
-   {293*OVERSAMPLENR, 155-50},
-   {316*OVERSAMPLENR, 150 - 49},
-   {340*OVERSAMPLENR, 145 - 49},
-   {364*OVERSAMPLENR, 140 - 44},
-   {396*OVERSAMPLENR, 135 - 42},
-   {425*OVERSAMPLENR, 130 - 40},
-   {460*OVERSAMPLENR, 125-38},
-   {489*OVERSAMPLENR, 120 - 36},
-   {526*OVERSAMPLENR, 115-34},
-   {558*OVERSAMPLENR, 110 - 32},
-   {591*OVERSAMPLENR, 105-31},
-   {628*OVERSAMPLENR, 100 -29},
-   {660*OVERSAMPLENR, 95 - 26},
-   {696*OVERSAMPLENR, 90 - 24},
-   {733*OVERSAMPLENR, 85 - 22},
-   {761*OVERSAMPLENR, 80 - 20},
-   {794*OVERSAMPLENR, 75 - 19},
-   {819*OVERSAMPLENR, 70 - 17},
-   {847*OVERSAMPLENR, 65 - 16},
-   {870*OVERSAMPLENR, 60 - 15},
-   {892*OVERSAMPLENR, 55 -12},
-   {911*OVERSAMPLENR, 50 -11},
+   {1*OVERSAMPLENR, 500},
+   {46*OVERSAMPLENR, 270}, //top rating 300C
+   {50*OVERSAMPLENR, 265},
+   {54*OVERSAMPLENR, 260},
+   {58*OVERSAMPLENR, 255},
+   {62*OVERSAMPLENR, 250},
+   {67*OVERSAMPLENR, 245},
+   {72*OVERSAMPLENR, 240},
+   {79*OVERSAMPLENR, 235},
+   {85*OVERSAMPLENR, 230},
+   {91*OVERSAMPLENR, 225},
+   {99*OVERSAMPLENR, 220},
+   {107*OVERSAMPLENR, 215},
+   {116*OVERSAMPLENR, 210},
+   {126*OVERSAMPLENR, 205},
+   {136*OVERSAMPLENR, 200},
+   {149*OVERSAMPLENR, 195},
+   {160*OVERSAMPLENR, 190},
+   {175*OVERSAMPLENR, 185},
+   {191*OVERSAMPLENR, 180},
+   {209*OVERSAMPLENR, 175},
+   {224*OVERSAMPLENR, 170},
+   {246*OVERSAMPLENR, 165},
+   {267*OVERSAMPLENR, 160},
+   {293*OVERSAMPLENR, 155},
+   {316*OVERSAMPLENR, 150},
+   {340*OVERSAMPLENR, 145},
+   {364*OVERSAMPLENR, 140},
+   {396*OVERSAMPLENR, 135},
+   {425*OVERSAMPLENR, 130},
+   {460*OVERSAMPLENR, 125},
+   {489*OVERSAMPLENR, 120},
+   {526*OVERSAMPLENR, 115},
+   {558*OVERSAMPLENR, 110},
+   {591*OVERSAMPLENR, 105},
+   {628*OVERSAMPLENR, 100},
+   {660*OVERSAMPLENR, 95},
+   {696*OVERSAMPLENR, 90},
+   {733*OVERSAMPLENR, 85},
+   {761*OVERSAMPLENR, 80},
+   {794*OVERSAMPLENR, 75},
+   {819*OVERSAMPLENR, 70},
+   {847*OVERSAMPLENR, 65},
+   {870*OVERSAMPLENR, 60},
+   {892*OVERSAMPLENR, 55},
+   {911*OVERSAMPLENR, 50},
    {929*OVERSAMPLENR, 45},
    {944*OVERSAMPLENR, 40},
    {959*OVERSAMPLENR, 35},
@@ -318,6 +308,262 @@ const short temptable_7[][2] PROGMEM = {
    {994*OVERSAMPLENR, 15},
    {1001*OVERSAMPLENR, 10},
    {1005*OVERSAMPLENR, 5}
+};
+#endif
+
+#if (THERMISTORHEATER_0 == 8) || (THERMISTORHEATER_1 == 8) || (THERMISTORHEATER_2 == 8) || (THERMISTORBED == 8) // Epcos B57560G104F 100K on JHeadMKV
+const short temptable_8[][2] PROGMEM = {
+    {     344,       300     }, // r=   101 adc=21.47
+    {     369,       295     }, // r=   108 adc=23.08
+    {     397,       290     }, // r=   117 adc=24.83
+    {     428,       285     }, // r=   126 adc=26.75
+    {     461,       280     }, // r=   136 adc=28.84
+    {     498,       275     }, // r=   147 adc=31.12
+    {     538,       270     }, // r=   160 adc=33.63
+    {     582,       265     }, // r=   173 adc=36.37
+    {     630,       260     }, // r=   188 adc=39.38
+    {     683,       255     }, // r=   205 adc=42.69
+    {     741,       250     }, // r=   223 adc=46.32
+    {     805,       245     }, // r=   243 adc=50.31
+    {     875,       240     }, // r=   266 adc=54.71
+    {     953,       235     }, // r=   290 adc=59.55
+    {    1038,       230     }, // r=   318 adc=64.88
+    {    1132,       225     }, // r=   349 adc=70.77
+    {    1236,       220     }, // r=   384 adc=77.26
+    {    1351,       215     }, // r=   423 adc=84.42
+    {    1477,       210     }, // r=   466 adc=92.32
+    {    1617,       205     }, // r=   515 adc=101.05
+    {    1771,       200     }, // r=   570 adc=110.68
+    {    1941,       195     }, // r=   632 adc=121.30
+    {    2128,       190     }, // r=   702 adc=133.01
+    {    2335,       185     }, // r=   782 adc=145.91
+    {    2562,       180     }, // r=   872 adc=160.11
+    {    2811,       175     }, // r=   975 adc=175.70
+    {    3085,       170     }, // r=  1092 adc=192.81
+    {    3384,       165     }, // r=  1225 adc=211.53
+    {    3711,       160     }, // r=  1378 adc=231.95
+    {    4066,       155     }, // r=  1554 adc=254.15
+    {    4451,       150     }, // r=  1756 adc=278.21
+    {    4866,       145     }, // r=  1989 adc=304.15
+    {    5312,       140     }, // r=  2258 adc=331.99
+    {    5787,       135     }, // r=  2570 adc=361.68
+    {    6290,       130     }, // r=  2934 adc=393.15
+    {    6820,       125     }, // r=  3357 adc=426.25
+    {    7373,       120     }, // r=  3852 adc=460.80
+    {    7945,       115     }, // r=  4433 adc=496.54
+    {    8531,       110     }, // r=  5116 adc=533.16
+    {    9125,       105     }, // r=  5921 adc=570.31
+    {    9722,       100     }, // r=  6875 adc=607.60
+    {   10314,        95     }, // r=  8007 adc=644.61
+    {   10895,        90     }, // r=  9356 adc=680.92
+    {   11458,        85     }, // r= 10968 adc=716.13
+    {   11998,        80     }, // r= 12903 adc=749.86
+    {   12509,        75     }, // r= 15234 adc=781.80
+    {   12987,        70     }, // r= 18051 adc=811.66
+    {   13428,        65     }, // r= 21469 adc=839.27
+    {   13832,        60     }, // r= 25635 adc=864.50
+    {   14197,        55     }, // r= 30732 adc=887.30
+    {   14523,        50     }, // r= 36995 adc=907.68
+    {   14811,        45     }, // r= 44725 adc=925.72
+    {   15064,        40     }, // r= 54309 adc=941.52
+    {   15284,        35     }, // r= 66249 adc=955.23
+    {   15472,        30     }, // r= 81195 adc=967.02
+    {   15633,        25     }, // r=100000 adc=977.08
+    {   15769,        20     }, // r=123783 adc=985.58
+    {   15883,        15     }, // r=154025 adc=992.71
+    {   15978,        10     }, // r=192694 adc=998.64
+    {   16057,         5     }, // r=242427 adc=1003.54
+    {   16121,         0     }, // r=306773 adc=1007.56
+};
+#endif
+
+#if (THERMISTORHEATER_0 == 9) || (THERMISTORHEATER_1 == 9) || (THERMISTORHEATER_2 == 9) || (THERMISTORBED == 9) // Epcos B57861S 104F 40 100K on Mendel90 bed, max temp 115
+const short temptable_9[][2] PROGMEM = {
+    {     982,       200     }, // r=   300 adc=61.38
+    {    1091,       195     }, // r=   336 adc=68.19
+    {    1214,       190     }, // r=   376 adc=75.84
+    {    1351,       185     }, // r=   423 adc=84.46
+    {    1506,       180     }, // r=   476 adc=94.15
+    {    1681,       175     }, // r=   538 adc=105.06
+    {    1877,       170     }, // r=   609 adc=117.34
+    {    2098,       165     }, // r=   691 adc=131.13
+    {    2346,       160     }, // r=   786 adc=146.61
+    {    2623,       155     }, // r=   897 adc=163.95
+    {    2933,       150     }, // r=  1026 adc=183.33
+    {    3279,       145     }, // r=  1177 adc=204.93
+    {    3662,       140     }, // r=  1355 adc=228.90
+    {    4086,       135     }, // r=  1564 adc=255.39
+    {    4552,       130     }, // r=  1810 adc=284.48
+    {    5060,       125     }, // r=  2103 adc=316.24
+    {    5610,       120     }, // r=  2451 adc=350.62
+    {    6200,       115     }, // r=  2866 adc=387.52
+    {    6828,       110     }, // r=  3364 adc=426.72
+    {    7486,       105     }, // r=  3962 adc=467.90
+    {    8170,       100     }, // r=  4684 adc=510.63
+    {    8870,        95     }, // r=  5559 adc=554.35
+    {    9575,        90     }, // r=  6625 adc=598.45
+    {   10276,        85     }, // r=  7928 adc=642.25
+    {   10961,        80     }, // r=  9528 adc=685.06
+    {   11620,        75     }, // r= 11501 adc=726.23
+    {   12242,        70     }, // r= 13947 adc=765.15
+    {   12822,        65     }, // r= 16994 adc=801.36
+    {   13352,        60     }, // r= 20807 adc=834.50
+    {   13830,        55     }, // r= 25606 adc=864.35
+    {   14253,        50     }, // r= 31678 adc=890.83
+    {   14624,        45     }, // r= 39403 adc=913.98
+    {   14943,        40     }, // r= 49289 adc=933.94
+    {   15215,        35     }, // r= 62016 adc=950.93
+    {   15443,        30     }, // r= 78504 adc=965.21
+    {   15633,        25     }, // r=100000 adc=977.08
+    {   15789,        20     }, // r=128214 adc=986.83
+    {   15916,        15     }, // r=165504 adc=994.75
+    {   16018,        10     }, // r=215143 adc=1001.13
+    {   16099,         5     }, // r=281716 adc=1006.21
+    {   16164,         0     }, // r=371694 adc=1010.23
+};
+#endif
+    
+#if (THERMISTORHEATER_0 == 51) || (THERMISTORHEATER_1 == 51) || (THERMISTORHEATER_2 == 51) || (THERMISTORBED == 51) 
+// 100k EPCOS (WITH 1kohm RESISTOR FOR PULLUP, R9 ON SANGUINOLOLU! NOT FOR 4.7kohm PULLUP! THIS IS NOT NORMAL!)
+// Verified by linagee.
+// Calculated using 1kohm pullup, voltage divider math, and manufacturer provided temp/resistance
+// Advantage: Twice the resolution and better linearity from 150C to 200C
+const short temptable_51[][2] PROGMEM = {
+   {1*OVERSAMPLENR, 350},
+   {190*OVERSAMPLENR, 250}, //top rating 250C
+   {203*OVERSAMPLENR, 245},
+   {217*OVERSAMPLENR, 240},
+   {232*OVERSAMPLENR, 235},
+   {248*OVERSAMPLENR, 230},
+   {265*OVERSAMPLENR, 225},
+   {283*OVERSAMPLENR, 220},
+   {302*OVERSAMPLENR, 215},
+   {322*OVERSAMPLENR, 210},
+   {344*OVERSAMPLENR, 205},
+   {366*OVERSAMPLENR, 200},
+   {390*OVERSAMPLENR, 195},
+   {415*OVERSAMPLENR, 190},
+   {440*OVERSAMPLENR, 185},
+   {467*OVERSAMPLENR, 180},
+   {494*OVERSAMPLENR, 175},
+   {522*OVERSAMPLENR, 170},
+   {551*OVERSAMPLENR, 165},
+   {580*OVERSAMPLENR, 160},
+   {609*OVERSAMPLENR, 155},
+   {638*OVERSAMPLENR, 150},
+   {666*OVERSAMPLENR, 145},
+   {695*OVERSAMPLENR, 140},
+   {722*OVERSAMPLENR, 135},
+   {749*OVERSAMPLENR, 130},
+   {775*OVERSAMPLENR, 125},
+   {800*OVERSAMPLENR, 120},
+   {823*OVERSAMPLENR, 115},
+   {845*OVERSAMPLENR, 110},
+   {865*OVERSAMPLENR, 105},
+   {884*OVERSAMPLENR, 100},
+   {901*OVERSAMPLENR, 95},
+   {917*OVERSAMPLENR, 90},
+   {932*OVERSAMPLENR, 85},
+   {944*OVERSAMPLENR, 80},
+   {956*OVERSAMPLENR, 75},
+   {966*OVERSAMPLENR, 70},
+   {975*OVERSAMPLENR, 65},
+   {982*OVERSAMPLENR, 60},
+   {989*OVERSAMPLENR, 55},
+   {995*OVERSAMPLENR, 50},
+   {1000*OVERSAMPLENR, 45},
+   {1004*OVERSAMPLENR, 40},
+   {1007*OVERSAMPLENR, 35},
+   {1010*OVERSAMPLENR, 30},
+   {1013*OVERSAMPLENR, 25},
+   {1015*OVERSAMPLENR, 20},
+   {1017*OVERSAMPLENR, 15},
+   {1018*OVERSAMPLENR, 10},
+   {1019*OVERSAMPLENR, 5},
+   {1020*OVERSAMPLENR, 0},
+   {1021*OVERSAMPLENR, -5}
+};
+#endif
+
+#if (THERMISTORHEATER_0 == 52) || (THERMISTORHEATER_1 == 52) || (THERMISTORHEATER_2 == 52) || (THERMISTORBED == 52) 
+// 200k ATC Semitec 204GT-2 (WITH 1kohm RESISTOR FOR PULLUP, R9 ON SANGUINOLOLU! NOT FOR 4.7kohm PULLUP! THIS IS NOT NORMAL!)
+// Verified by linagee. Source: http://shop.arcol.hu/static/datasheets/thermistors.pdf
+// Calculated using 1kohm pullup, voltage divider math, and manufacturer provided temp/resistance
+// Advantage: More resolution and better linearity from 150C to 200C
+const short temptable_52[][2] PROGMEM = {
+   {1*OVERSAMPLENR, 500},
+   {125*OVERSAMPLENR, 300}, //top rating 300C
+   {142*OVERSAMPLENR, 290},
+   {162*OVERSAMPLENR, 280},
+   {185*OVERSAMPLENR, 270},
+   {211*OVERSAMPLENR, 260},
+   {240*OVERSAMPLENR, 250},
+   {274*OVERSAMPLENR, 240},
+   {312*OVERSAMPLENR, 230},
+   {355*OVERSAMPLENR, 220},
+   {401*OVERSAMPLENR, 210},
+   {452*OVERSAMPLENR, 200},
+   {506*OVERSAMPLENR, 190},
+   {563*OVERSAMPLENR, 180},
+   {620*OVERSAMPLENR, 170},
+   {677*OVERSAMPLENR, 160},
+   {732*OVERSAMPLENR, 150},
+   {783*OVERSAMPLENR, 140},
+   {830*OVERSAMPLENR, 130},
+   {871*OVERSAMPLENR, 120},
+   {906*OVERSAMPLENR, 110},
+   {935*OVERSAMPLENR, 100},
+   {958*OVERSAMPLENR, 90},
+   {976*OVERSAMPLENR, 80},
+   {990*OVERSAMPLENR, 70},
+   {1000*OVERSAMPLENR, 60},
+   {1008*OVERSAMPLENR, 50},
+   {1013*OVERSAMPLENR, 40},
+   {1017*OVERSAMPLENR, 30},
+   {1019*OVERSAMPLENR, 20},
+   {1021*OVERSAMPLENR, 10},
+   {1022*OVERSAMPLENR, 0}
+};
+#endif
+
+#if (THERMISTORHEATER_0 == 55) || (THERMISTORHEATER_1 == 55) || (THERMISTORHEATER_2 == 55) || (THERMISTORBED == 55) 
+// 100k ATC Semitec 104GT-2 (Used on ParCan) (WITH 1kohm RESISTOR FOR PULLUP, R9 ON SANGUINOLOLU! NOT FOR 4.7kohm PULLUP! THIS IS NOT NORMAL!)
+// Verified by linagee. Source: http://shop.arcol.hu/static/datasheets/thermistors.pdf
+// Calculated using 1kohm pullup, voltage divider math, and manufacturer provided temp/resistance
+// Advantage: More resolution and better linearity from 150C to 200C
+const short temptable_55[][2] PROGMEM = {
+   {1*OVERSAMPLENR, 500},
+   {76*OVERSAMPLENR, 300},
+   {87*OVERSAMPLENR, 290},
+   {100*OVERSAMPLENR, 280},
+   {114*OVERSAMPLENR, 270},
+   {131*OVERSAMPLENR, 260},
+   {152*OVERSAMPLENR, 250},
+   {175*OVERSAMPLENR, 240},
+   {202*OVERSAMPLENR, 230},
+   {234*OVERSAMPLENR, 220},
+   {271*OVERSAMPLENR, 210},
+   {312*OVERSAMPLENR, 200},
+   {359*OVERSAMPLENR, 190},
+   {411*OVERSAMPLENR, 180},
+   {467*OVERSAMPLENR, 170},
+   {527*OVERSAMPLENR, 160},
+   {590*OVERSAMPLENR, 150},
+   {652*OVERSAMPLENR, 140},
+   {713*OVERSAMPLENR, 130},
+   {770*OVERSAMPLENR, 120},
+   {822*OVERSAMPLENR, 110},
+   {867*OVERSAMPLENR, 100},
+   {905*OVERSAMPLENR, 90},
+   {936*OVERSAMPLENR, 80},
+   {961*OVERSAMPLENR, 70},
+   {979*OVERSAMPLENR, 60},
+   {993*OVERSAMPLENR, 50},
+   {1003*OVERSAMPLENR, 40},
+   {1010*OVERSAMPLENR, 30},
+   {1015*OVERSAMPLENR, 20},
+   {1018*OVERSAMPLENR, 10},
+   {1020*OVERSAMPLENR, 0}
 };
 #endif
 
@@ -370,4 +616,3 @@ const short temptable_7[][2] PROGMEM = {
 #endif
 
 #endif //THERMISTORTABLES_H_
-
