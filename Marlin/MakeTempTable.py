@@ -39,7 +39,7 @@ def main(argv):
         
     def resistance(adc):
         return adc * rp / (1023.0 - adc)
-		
+        
     r0 = 100000
     t0 = 25
     rp = 4700
