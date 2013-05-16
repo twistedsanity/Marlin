@@ -89,7 +89,9 @@
 // M92  - Set axis_steps_per_unit - same syntax as G92
 // M114 - Output current position to serial port 
 // M115	- Capabilities string
+// M116 - Force LCD 4D Update
 // M117 - display message
+// M118 - LCD 4D Finish Sound
 // M119 - Output Endstop status to serial port
 // M140 - Set bed target temp
 // M190 - Wait for bed current temp to reach target temp.
@@ -311,6 +313,9 @@ void loop()
     get_command();
   #ifdef SDSUPPORT
   card.checkautostart(false);
+  #endif
+  #ifdef LCD_4D
+    LCD4D_CHECKDATA
   #endif
   if(buflen)
   {
@@ -728,9 +733,15 @@ void process_commands()
 
 #ifdef SDSUPPORT
     case 20: // M20 - list SD card
+      #ifdef LCD_4D
+        SERIAL1_PROTOCOLLNPGM(MSG_BEGIN_FILE_LIST);
+      #endif
       SERIAL_PROTOCOLLNPGM(MSG_BEGIN_FILE_LIST);
       card.ls();
       SERIAL_PROTOCOLLNPGM(MSG_END_FILE_LIST);
+      #ifdef LCD_4D
+      SERIAL1_PROTOCOLLNPGM(MSG_END_FILE_LIST);
+      #endif
       break;
     case 21: // M21 - init SD card
       
@@ -1092,9 +1103,20 @@ void process_commands()
     case 115: // M115
       SerialprintPGM(MSG_M115_REPORT);
       break;
+	  +    #ifdef LCD_4D
+    case 116: // M116 LCD 4D force updte
+      LCD_FORCE_UPDATE
+      break;    
+    #endif
     case 117: // M117 display message
       LCD_MESSAGE(cmdbuffer[bufindr]+5);
       break;
+    #ifdef LCD_4D
+    case 118: //M118 finish sound
+      LCD_FINISH_SOUND
+      break;
+    #endif
+    
     case 114: // M114
       SERIAL_PROTOCOLPGM("X:");
       SERIAL_PROTOCOL(current_position[X_AXIS]);

@@ -1,6 +1,8 @@
 #ifndef __ULTRALCDH
 #define __ULTRALCDH
 #include "Marlin.h"
+
+#ifndef LCD_4D
 #ifdef ULTRA_LCD
   #include <LiquidCrystal.h>
   void lcd_status();
@@ -160,4 +162,18 @@ char *itostr31(const int &xx);
 char *itostr3(const int &xx);
 char *itostr4(const int &xx);
 char *ftostr51(const float &x);
+
+#else
+
+#include "lcd4d.h"
+#define LCD_INIT lcd4d_init();
+#define LCD_STATUS lcd4d_status();
+#define LCD_MESSAGE(x) lcd4d_status(x);
+#define LCD_MESSAGEPGM(x) lcd4d_statuspgm(MYPGM(x));
+#define LCD_FINISH_SOUND lcd4d_finishSound();
+
+#define CLICKED false
+#define BLOCK ;
+#endif //LCD4D
+
 #endif //ULTRALCD

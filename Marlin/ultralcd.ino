@@ -3,6 +3,8 @@
 #include "Marlin.h"
 #include "language.h"
 #include "temperature.h"
+
+#ifndef LCD_4D
 #include "EEPROMwrite.h"
 #include <LiquidCrystal.h>
 //===========================================================================
@@ -2383,4 +2385,4 @@ char *ftostr52(const float &x)
 
 #endif //ULTRA_LCD
 
-
+#endif //LCD_4D

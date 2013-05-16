@@ -845,6 +845,9 @@ ISR(TIMER0_COMPB_vect)
       #ifdef ULTIPANEL
         buttons_check();
       #endif
+      #ifdef LCD_4D
+        LCD4D_CHECKDATA
+      #endif
       temp_state = 1;
       break;
     case 1: // Measure TEMP_0
