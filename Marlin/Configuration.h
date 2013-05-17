@@ -2,7 +2,11 @@
 #define __CONFIGURATION_H
 
 // Mendel90 hobbed bolt and 39:11 Wade's gears
-#define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142))
+// OLD #define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142))
+
+// 534.948466202
+
+#define E_STEPS_PER_MM 594.9650107706546
 
 // This configurtion file contains the basic settings.
 // Advanced settings can be found in Configuration_adv.h 

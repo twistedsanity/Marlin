@@ -1103,7 +1103,7 @@ void process_commands()
     case 115: // M115
       SerialprintPGM(MSG_M115_REPORT);
       break;
-	  +    #ifdef LCD_4D
+    #ifdef LCD_4D
     case 116: // M116 LCD 4D force updte
       LCD_FORCE_UPDATE
       break;    

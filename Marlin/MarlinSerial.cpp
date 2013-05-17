@@ -231,10 +231,10 @@ void MarlinSerial::end()
   cbi(*_ucsrb, _rxcie);    
 }
 
-+int MarlinSerial::available(void)
-+{
-+  return (unsigned int)(RX_BUFFER_SIZE + _rx_buffer->head - _rx_buffer->tail) % RX_BUFFER_SIZE;
-+}
+int MarlinSerial::available(void)
+{
+  return (unsigned int)(RX_BUFFER_SIZE + _rx_buffer->head - _rx_buffer->tail) % RX_BUFFER_SIZE;
+}
 
 int MarlinSerial::peek(void)
 {
@@ -271,7 +271,7 @@ void MarlinSerial::flush()
   _rx_buffer->head = _rx_buffer->tail;
 }
 
-void MarlinSerial::write(uint8_t c)
+size_t MarlinSerial::write(uint8_t c)
 {
   while (!((*_ucsra) & (1 << _udre)))
     ;

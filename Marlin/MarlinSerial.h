@@ -54,7 +54,7 @@ class MarlinSerial : public Stream
     virtual int peek(void);
     virtual int read(void);
     virtual void flush(void);
-    virtual void write(uint8_t);
+    virtual size_t write(uint8_t);
     void checkRx(void);
     using Print::write; // pull in write(str) and write(buf, size) from Print
 };

@@ -46,23 +46,22 @@
 
 #include "WString.h"
 
+#ifdef REPRAPPRO_MULTIMATERIALS
   #define MYSERIAL MSerial
   #define MYSERIAL1 MSerial1
- #else
- 
- #if MOTHERBOARD == 8 // Teensylu
- 
- 
- 
- 
- 
- 
- 
-   #define MYSERIAL MSerial
- #endif
+#else
 
- #ifdef LCD_4D
+#if MOTHERBOARD == 8 // Teensylu
+  #define MYSERIAL Serial
+  #define MYSERIAL1 Serial1
+#else
+  #define MYSERIAL MSerial
+#endif
+
+#ifdef LCD_4D
   #define MYSERIAL1 MSerial1
+#endif
+
 #endif
 
 //this is a unfinsihed attemp to removes a lot of warning messages, see:
