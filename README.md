@@ -1,4 +1,5 @@
-Marlin configured for Mendel90 with Sanguninololu
+Marlin configured for Mendel90 with Melzi
+Added support for LCD32 from 4DSystems - Tested with LCD32-PTu
 
 WARNING: 
 --------
