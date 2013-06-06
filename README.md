@@ -1,5 +1,5 @@
 Marlin configured for Mendel90 with Melzi
-Added support for LCD32 from 4DSystems - Tested with LCD32-PTu
+Added support for uLCD32 from 4DSystems - Tested with uLCD32-PTu
 
 WARNING: 
 --------
