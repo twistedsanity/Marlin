@@ -3,10 +3,11 @@
 
 // Mendel90 hobbed bolt and 39:11 Wade's gears
 // OLD #define E_STEPS_PER_MM ((3200 * 39.0)/(11.0 * 6.75 * 3.142))
-
 // 534.948466202
+// pre E3D #define E_STEPS_PER_MM 594.9650107706546
+// then #define E_STEPS_PER_MM 693.2708118977565
 
-#define E_STEPS_PER_MM 594.9650107706546
+#define E_STEPS_PER_MM 592.3366472127106
 
 // This configurtion file contains the basic settings.
 // Advanced settings can be found in Configuration_adv.h 
@@ -80,7 +81,9 @@
 // When temperature exceeds max temp, your heater will be switched off.
 // This feature exists to protect your hotend from overheating accidentally, but *NOT* from thermistor short/failure!
 // You should use MINTEMP for thermistor short/failure protection.
-#define HEATER_0_MAXTEMP 275
+// Old J-head setting below
+// #define HEATER_0_MAXTEMP 275
+#define HEATER_0_MAXTEMP 300
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define BED_MAXTEMP 150
@@ -180,7 +183,9 @@ const bool Z_ENDSTOPS_INVERTING = false; // set to true to invert the logic of t
 // #define Z_HOME_POS (204.1425)
 // #define Z_HOME_POS (204.0425)
 // #define Z_HOME_POS (203.9)
-#define Z_HOME_POS (204.1)
+// #define Z_HOME_POS (204.1) // J-Head height
+// #define Z_HOME_POS (185.55) // maybe 56-58
+#define Z_HOME_POS (185.7) // old good
 
 #define X_MAX_LENGTH (X_MAX_POS - X_MIN_POS)
 #define Y_MAX_LENGTH (Y_MAX_POS - Y_MIN_POS)
